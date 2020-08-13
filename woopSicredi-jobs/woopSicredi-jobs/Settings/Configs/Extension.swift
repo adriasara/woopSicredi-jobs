@@ -40,7 +40,7 @@ extension Decimal {
 
 extension Double {
     
-    func convertLocation(longitude: Double, completion: @escaping (_ response: String?) -> Void) {
+    func convertLocation(longitude: Double, completion: @escaping (_ response: String?, _ error: NSError?) -> Void) {
             
         let location = CLLocation(latitude: self, longitude: longitude)
         var region: String = ""
@@ -54,13 +54,11 @@ extension Double {
             
                 region = "\(city), \(country)"
                 if !region.isEmpty {
-                    print(region)
-                    
-                    completion(region)
+                    completion(region, nil)
                 }
             } else {
-                if error != nil {
-                    print(error ?? NSError())
+                if let error = error {
+                    completion(nil, error as NSError)
                 }
             }
         }

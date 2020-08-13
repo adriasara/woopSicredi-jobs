@@ -23,11 +23,16 @@ final class EventsListViewModel: NSObject {
 
         request.responseJSON { (response) in
             
-            guard let data = response.data else { return }
-            
-            if let jResult = try? JSONDecoder().decode([EventsListModel].self, from: data) {
-                
-                completion(.success, jResult)
+            if let data = response.data {
+
+                if let jResult = try? JSONDecoder().decode([EventsListModel].self, from: data) {
+                    
+                    completion(.success, jResult)
+                } else {
+                    completion(.warning, nil)
+                }
+            } else {
+                completion(.error, nil)
             }
         }
     }

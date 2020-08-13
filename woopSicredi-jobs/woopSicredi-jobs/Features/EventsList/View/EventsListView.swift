@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol EventListViewDelegate: NSObjectProtocol {
+    func selectEvent(event: EventsListModel)
+}
+
 class EventsListView: UIView {
     
     private var eventListResult = [EventsListModel]()
+    
+    weak var delegate: EventListViewDelegate?
  
     private lazy var tbVEventList: UITableView = {
         let tbVEventList = UITableView(frame: .zero, style: .plain)
@@ -43,7 +49,6 @@ class EventsListView: UIView {
     private func commonInit() {
         subviews()
         layout()
-        addActions()
     }
     
     private func subviews() {
@@ -56,19 +61,11 @@ class EventsListView: UIView {
         tbVEventList.top(0).left(0).right(0).bottom(0)
     }
     
-    private func addActions() {
-        
-    }
-    
     func setEventsList(result : [EventsListModel]) {
         eventListResult = result
     }
     
     func getEventsList() -> [EventsListModel] {
         return eventListResult
-    }
-    
-    func reloadTbData() {
-        tbVEventList.reloadData()
     }
 }

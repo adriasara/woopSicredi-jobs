@@ -10,6 +10,10 @@ import UIKit
 
 extension EventsListView: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        delegate?.selectEvent(event: getEventsList()[indexPath.row])
+    }
 }
 
 extension EventsListView: UITableViewDataSource {
@@ -24,6 +28,7 @@ extension EventsListView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventsListCell.reusableIdentifier, for: indexPath) as? EventsListCell else { return UITableViewCell() }
         
         cell.backgroundColor = .white
+        cell.selectionStyle = .none
 
         let items = getEventsList()[indexPath.row]
         
@@ -33,9 +38,13 @@ extension EventsListView: UITableViewDataSource {
         
         if let latitude = items.latitude {
             if let longitude = items.longitude {
-                latitude.convertLocation(longitude: longitude) { (result) in
-                    if let location = result {
-                        cell.setLocationText(location)
+                latitude.convertLocation(longitude: longitude) { (result, error) in
+                    if error == nil {
+                        if let location = result {
+                            cell.setLocationText(location)
+                        }
+                    } else {
+                        cell.setLocationText("")
                     }
                 }
             }

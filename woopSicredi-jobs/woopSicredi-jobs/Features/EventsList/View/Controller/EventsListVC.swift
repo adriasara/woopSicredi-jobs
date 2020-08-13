@@ -38,11 +38,23 @@ class EventsListVC: UIViewController {
                 if let eventList = result {
                     self.eventsListView.setEventsList(result: eventList)
                     self.view.sv(self.eventsListView)
+                    self.eventsListView.delegate = self
                     self.eventsListView.fillContainer()
                 }
             } else {
                 print("error")
             }
         })
+    }
+}
+
+extension EventsListVC: EventListViewDelegate {
+    
+    func selectEvent(event: EventsListModel) {
+        
+        let detailsVC = EventsDetailsVC()
+        
+        detailsVC.eventSelect = event
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

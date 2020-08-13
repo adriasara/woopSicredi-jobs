@@ -21,6 +21,9 @@
 		21E2521224E5D6070003CF8A /* EventsListTBDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2521124E5D6070003CF8A /* EventsListTBDelegate.swift */; };
 		21E2521624E5DB2E0003CF8A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2521524E5DB2E0003CF8A /* Extension.swift */; };
 		21E2521A24E5DC070003CF8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21E2521C24E5DC070003CF8A /* Localizable.strings */; };
+		21E2522024E600090003CF8A /* EventsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2521F24E600090003CF8A /* EventsDetailsView.swift */; };
+		21E2522324E6012B0003CF8A /* EventsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2522224E6012B0003CF8A /* EventsDetailsVC.swift */; };
+		21E2522624E607180003CF8A /* EventsDetailsTxtVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2522524E607180003CF8A /* EventsDetailsTxtVDelegate.swift */; };
 		A73543D4B95EDB54FC403938 /* Pods_woopSicredi_jobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF9D0CD9B592AF44E1B3EF6 /* Pods_woopSicredi_jobs.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		21E2521724E5DB860003CF8A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		21E2521B24E5DC070003CF8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21E2521D24E5DC0B0003CF8A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		21E2521F24E600090003CF8A /* EventsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailsView.swift; sourceTree = "<group>"; };
+		21E2522224E6012B0003CF8A /* EventsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailsVC.swift; sourceTree = "<group>"; };
+		21E2522524E607180003CF8A /* EventsDetailsTxtVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailsTxtVDelegate.swift; sourceTree = "<group>"; };
 		C8D1C22D58A734818A235D07 /* Pods-woopSicredi-jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-woopSicredi-jobs.debug.xcconfig"; path = "Target Support Files/Pods-woopSicredi-jobs/Pods-woopSicredi-jobs.debug.xcconfig"; sourceTree = "<group>"; };
 		F753CFC48B4696A7ECC92F15 /* Pods-woopSicredi-jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-woopSicredi-jobs.release.xcconfig"; path = "Target Support Files/Pods-woopSicredi-jobs/Pods-woopSicredi-jobs.release.xcconfig"; sourceTree = "<group>"; };
 		FCF9D0CD9B592AF44E1B3EF6 /* Pods_woopSicredi_jobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_woopSicredi_jobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,7 @@
 		21C6191324E5ABB600E11C8C /* EventsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				21E2521E24E5FFD80003CF8A /* View */,
 			);
 			path = EventsDetails;
 			sourceTree = "<group>";
@@ -154,7 +161,6 @@
 		21C6191724E5AC9500E11C8C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21C6191924E5ACCA00E11C8C /* ViewModel */,
 				21E2520724E5C46C0003CF8A /* EventsListModel.swift */,
 			);
 			path = Model;
@@ -166,6 +172,7 @@
 				21C6191B24E5AD4A00E11C8C /* EventsListView.swift */,
 				21E2520C24E5D5D30003CF8A /* TableView */,
 				21C6191A24E5AD2100E11C8C /* Controller */,
+				21C6191924E5ACCA00E11C8C /* ViewModel */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +233,32 @@
 				21E2521C24E5DC070003CF8A /* Localizable.strings */,
 			);
 			path = Locale;
+			sourceTree = "<group>";
+		};
+		21E2521E24E5FFD80003CF8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21E2521F24E600090003CF8A /* EventsDetailsView.swift */,
+				21E2522424E606F40003CF8A /* Delegate */,
+				21E2522124E601140003CF8A /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21E2522124E601140003CF8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21E2522224E6012B0003CF8A /* EventsDetailsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21E2522424E606F40003CF8A /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				21E2522524E607180003CF8A /* EventsDetailsTxtVDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		442BC6344049AA9B055E2DEA /* Pods */ = {
@@ -353,7 +386,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E2522024E600090003CF8A /* EventsDetailsView.swift in Sources */,
 				21E2521024E5D5F40003CF8A /* EventsListCell.swift in Sources */,
+				21E2522324E6012B0003CF8A /* EventsDetailsVC.swift in Sources */,
 				21C6191C24E5AD4A00E11C8C /* EventsListView.swift in Sources */,
 				21E2520A24E5C7580003CF8A /* Enum.swift in Sources */,
 				21C6190224E5AAC200E11C8C /* ViewController.swift in Sources */,
@@ -361,6 +396,7 @@
 				21E2520624E5B4200003CF8A /* EventsListViewModel.swift in Sources */,
 				21C6190024E5AAC200E11C8C /* SceneDelegate.swift in Sources */,
 				21E2521224E5D6070003CF8A /* EventsListTBDelegate.swift in Sources */,
+				21E2522624E607180003CF8A /* EventsDetailsTxtVDelegate.swift in Sources */,
 				21E2520424E5B0DC0003CF8A /* EventsListVC.swift in Sources */,
 				21E2521624E5DB2E0003CF8A /* Extension.swift in Sources */,
 				21E2520824E5C46C0003CF8A /* EventsListModel.swift in Sources */,
