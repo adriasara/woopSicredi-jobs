@@ -16,7 +16,7 @@ extension EventsListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return getEventsList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,12 +24,28 @@ extension EventsListView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventsListCell.reusableIdentifier, for: indexPath) as? EventsListCell else { return UITableViewCell() }
         
         cell.backgroundColor = .white
+
+        let items = getEventsList()[indexPath.row]
         
+        cell.setTitleText(items.title ?? "")
+        cell.setDateText(items.date?.convertMiliseconsToDate() ?? "")
+        cell.setPriceText(items.price?.convertMoney() ?? "")
+        
+        if let latitude = items.latitude {
+            if let longitude = items.longitude {
+                latitude.convertLocation(longitude: longitude) { (result) in
+                    if let location = result {
+                        cell.setLocationText(location)
+                    }
+                }
+            }
+        }
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 100
+        return 110
     }
 }

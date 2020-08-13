@@ -9,6 +9,8 @@
 import UIKit
 
 class EventsListView: UIView {
+    
+    private var eventListResult = [EventsListModel]()
  
     private lazy var tbVEventList: UITableView = {
         let tbVEventList = UITableView(frame: .zero, style: .plain)
@@ -56,5 +58,17 @@ class EventsListView: UIView {
     
     private func addActions() {
         
+    }
+    
+    func setEventsList(result : [EventsListModel]) {
+        eventListResult = result
+    }
+    
+    func getEventsList() -> [EventsListModel] {
+        return eventListResult
+    }
+    
+    func reloadTbData() {
+        tbVEventList.reloadData()
     }
 }

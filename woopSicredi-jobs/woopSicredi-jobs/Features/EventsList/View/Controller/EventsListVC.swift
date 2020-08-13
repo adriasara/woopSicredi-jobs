@@ -17,11 +17,8 @@ class EventsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.sv([eventsListView])
         view.backgroundColor = .white
-        
-        eventsListView.fillContainer()
-        
+                
         requestEventList()
     }
     
@@ -35,10 +32,14 @@ class EventsListVC: UIViewController {
         
         eventsListViewModel = EventsListViewModel(eventsListModel: .init())
         
-        eventsListViewModel?.requestEventsList(completion: { (response) in
+        eventsListViewModel?.requestEventsList(completion: { (response, result)  in
             
-            if response == .success {
-                print("success")
+            if response == .success {                
+                if let eventList = result {
+                    self.eventsListView.setEventsList(result: eventList)
+                    self.view.sv(self.eventsListView)
+                    self.eventsListView.fillContainer()
+                }
             } else {
                 print("error")
             }

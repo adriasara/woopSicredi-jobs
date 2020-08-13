@@ -17,7 +17,7 @@ final class EventsListViewModel: NSObject {
         self.eventsListModel = eventsListModel
     }
     
-    func requestEventsList(completion: @escaping (_ result: ResponseType?) -> Void) {
+    func requestEventsList(completion: @escaping (_ response: ResponseType?, _ result: [EventsListModel]?) -> Void) {
         
         let request = AF.request("http://5b840ba5db24a100142dcd8c.mockapi.io/api/events")
 
@@ -27,7 +27,7 @@ final class EventsListViewModel: NSObject {
             
             if let jResult = try? JSONDecoder().decode([EventsListModel].self, from: data) {
                 
-                completion(.success)
+                completion(.success, jResult)
             }
         }
     }
