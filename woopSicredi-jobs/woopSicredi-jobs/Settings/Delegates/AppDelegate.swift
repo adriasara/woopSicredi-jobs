@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             let viewController = EventsListVC()
 
-            window.rootViewController = viewController
+            window.rootViewController = UINavigationController(rootViewController: viewController)
             window.makeKeyAndVisible()
         }
         

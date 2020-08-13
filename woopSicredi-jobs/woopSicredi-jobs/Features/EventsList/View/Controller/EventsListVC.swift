@@ -25,6 +25,12 @@ class EventsListVC: UIViewController {
         requestEventList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        title = "events".localized()
+    }
+    
     func requestEventList() {
         
         eventsListViewModel = EventsListViewModel(eventsListModel: .init())
