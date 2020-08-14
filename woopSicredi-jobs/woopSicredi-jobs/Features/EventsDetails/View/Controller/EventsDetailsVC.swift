@@ -29,5 +29,14 @@ class EventsDetailsVC: UIViewController {
         super.viewWillAppear(animated)
         
         title = "event_detail".localized()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
+
+    }
+    
+    @objc private func share() {
+     
+        let activityViewController = UIActivityViewController(activityItems: [eventsDetailsView] , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }

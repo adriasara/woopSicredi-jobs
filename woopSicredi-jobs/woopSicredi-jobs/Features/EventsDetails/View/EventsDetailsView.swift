@@ -124,7 +124,7 @@ class EventsDetailsView: UIView {
                     let data: Data = try Data(contentsOf: url)
                     eventImage.image = UIImage(data: data)
                 } catch {
-                    // error handling
+                    eventImage.image = #imageLiteral(resourceName: "no-photo")
                 }
             }
         }
@@ -154,7 +154,5 @@ class EventsDetailsView: UIView {
                 }
             }
         }
-        
-        
     }
 }
