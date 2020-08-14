@@ -17,6 +17,7 @@ class EventsListCell: UITableViewCell {
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
         titleLabel.textColor = .black
+        titleLabel.backgroundColor = .white
         return titleLabel
     }()
     
@@ -26,6 +27,7 @@ class EventsListCell: UITableViewCell {
         dateLabel.textAlignment = .left
         dateLabel.numberOfLines = 0
         dateLabel.textColor = .black
+        dateLabel.backgroundColor = .white
         return dateLabel
     }()
     
@@ -35,6 +37,7 @@ class EventsListCell: UITableViewCell {
         priceLabel.textAlignment = .right
         priceLabel.numberOfLines = 0
         priceLabel.textColor = .black
+        priceLabel.backgroundColor = .white
         return priceLabel
     }()
     
@@ -44,6 +47,7 @@ class EventsListCell: UITableViewCell {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = .white
         return stackView
      }()
     
@@ -53,6 +57,7 @@ class EventsListCell: UITableViewCell {
         locationLabel.textAlignment = .left
         locationLabel.numberOfLines = 0
         locationLabel.textColor = .black
+        locationLabel.backgroundColor = .white
         return locationLabel
     }()
     

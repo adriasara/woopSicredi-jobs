@@ -22,13 +22,15 @@ class EventsDetailsView: UIView {
         titleLabel.font = UIFont(name: "Arial-Medium", size: 10.0)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
+        titleLabel.backgroundColor = .white
         titleLabel.textColor = .black
         return titleLabel
     }()
     
     private lazy var eventImage: UIImageView = {
         let eventImage = UIImageView(frame: .zero)
-        eventImage.contentMode = .scaleAspectFill
+        eventImage.backgroundColor = .white
+        eventImage.contentMode = .scaleAspectFit
         return eventImage
     }()
     
@@ -37,9 +39,11 @@ class EventsDetailsView: UIView {
         descriptionTextView.font = UIFont(name: "Arial-Regular", size: 10.0)
         descriptionTextView.textAlignment = .justified
         descriptionTextView.textColor = .black
+        descriptionTextView.backgroundColor = .white
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = true
-        descriptionTextView.delegate = self
+        descriptionTextView.layer.borderWidth = 1.0
+        descriptionTextView.layer.borderColor = UIColor.black.cgColor
         return descriptionTextView
     }()
     
@@ -49,15 +53,17 @@ class EventsDetailsView: UIView {
         dateLabel.textAlignment = .left
         dateLabel.numberOfLines = 0
         dateLabel.textColor = .black
+        dateLabel.backgroundColor = .white
         return dateLabel
     }()
     
     private lazy var priceLabel: UILabel = {
         let priceLabel = UILabel(frame: .zero)
         priceLabel.font = UIFont(name: "Arial-Regular", size: 10.0)
-        priceLabel.textAlignment = .right
+        priceLabel.textAlignment = .left
         priceLabel.numberOfLines = 0
         priceLabel.textColor = .black
+        priceLabel.backgroundColor = .white
         return priceLabel
     }()
     
@@ -67,6 +73,7 @@ class EventsDetailsView: UIView {
         locationLabel.textAlignment = .left
         locationLabel.numberOfLines = 0
         locationLabel.textColor = .black
+        locationLabel.backgroundColor = .white
         return locationLabel
     }()
     
@@ -92,13 +99,19 @@ class EventsDetailsView: UIView {
     
     private func layout() {
         
-        whiteView.left(0).right(0).top(0).bottom(0)
+        whiteView.centerVertically().centerHorizontally().height(80%).width(90%)
     
         titleLabel.top(15).left(10).right(10)
         
-        eventImage.left(30).right(30).height(30%).Top == titleLabel.Bottom + 10
+        eventImage.left(10).right(10).height(30%).Top == titleLabel.Bottom + 15
         
-        descriptionTextView.left(10).right(10).Top == eventImage.Bottom + 10
+        descriptionTextView.left(10).right(10).height(40%).Top == eventImage.Bottom + 10
+        
+        dateLabel.left(10).right(10).Top == descriptionTextView.Bottom + 15
+        
+        priceLabel.left(10).right(10).Top == dateLabel.Bottom + 10
+        
+        locationLabel.left(10).right(10).Top == priceLabel.Bottom + 10
     }
     
     func setupComponents(item: EventsListModel) {
@@ -117,5 +130,31 @@ class EventsDetailsView: UIView {
         }
         
         descriptionTextView.text = item.description
+        
+        if let date = item.date {
+
+            dateLabel.text = "date".localized() + ": \(date.convertMiliseconsToDate())"
+        }
+        
+        if let price = item.price {
+
+            priceLabel.text = "value".localized() + ": \(price.convertMoney())"
+        }
+        
+        if let latitude = item.latitude {
+            if let longitude = item.longitude {
+                latitude.convertLocation(longitude: longitude) { (result, error) in
+                    if error == nil {
+                        if let location = result {
+                            self.locationLabel.text = "location".localized() + ": \(location)"
+                        }
+                    } else {
+                        self.locationLabel.text = "location".localized() + ": -"
+                    }
+                }
+            }
+        }
+        
+        
     }
 }

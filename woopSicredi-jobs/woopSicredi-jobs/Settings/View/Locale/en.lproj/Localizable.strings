@@ -8,3 +8,6 @@
 
 "events" = "Events";
 "event_detail" = "Event Detail";
+"date" = "Date";
+"value" = "Value";
+"location" = "Location";
