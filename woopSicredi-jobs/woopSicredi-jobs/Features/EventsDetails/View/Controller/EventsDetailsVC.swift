@@ -48,14 +48,18 @@ extension EventsDetailsVC: EventsDetailsViewDelegate {
                 guard let name = textFields?[0] else { return }
                 guard let email = textFields?[1] else { return }
                 
-                self.eventDetailViewModel?.requestCheckIn(data: ["eventId" : eventId, "name" : name, "email" : email], completion: { (response) in
-                    
-                    if response == .success {
-                        self.presentAlertMessage(title: "success".localized(), message: "logged".localized())
-                    } else {
-                        self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
-                    }
-                })
+                if email.isValidEmail() {
+                    self.eventDetailViewModel?.requestCheckIn(data: ["eventId" : eventId, "name" : name, "email" : email], completion: { (response) in
+                        
+                        if response == .success {
+                            self.presentAlertMessage(title: "success".localized(), message: "logged".localized())
+                        } else {
+                            self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
+                        }
+                    })
+                } else {
+                    self.presentAlertMessage(title: "fail".localized(), message: "type_valid_email".localized())
+                }
             }
         }
     }

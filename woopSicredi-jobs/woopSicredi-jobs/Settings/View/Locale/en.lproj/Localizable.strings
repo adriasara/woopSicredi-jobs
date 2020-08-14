@@ -20,3 +20,4 @@
 "logged" = "You're logged!";
 "fail" = "Failed";
 "error" = "Somenthing's wrong. Try again.";
+"type_valid_email" = "Type a valid email.";
