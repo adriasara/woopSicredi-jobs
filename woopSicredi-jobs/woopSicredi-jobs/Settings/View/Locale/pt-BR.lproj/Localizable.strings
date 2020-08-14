@@ -11,3 +11,12 @@
 "date" = "Data";
 "value" = "Valor";
 "location" = "Localização";
+"enter_name" = "Preencha seu nome";
+"enter_email" = "Preencha seu e-mail";
+"cancel" = "Cancelar";
+"welcome" = "Bem-vindo";
+"want_to_login" = "Você se interessou nesse evento? Vamos entrar!";
+"success" = "Sucesso";
+"logged" = "Você entrou!";
+"fail" = "Falha";
+"error" = "Algo deu errado. Tente novamente.";

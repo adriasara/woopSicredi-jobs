@@ -55,6 +55,7 @@ extension EventsListVC: EventListViewDelegate {
         let detailsVC = EventsDetailsVC()
         
         detailsVC.eventSelect = event
+
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

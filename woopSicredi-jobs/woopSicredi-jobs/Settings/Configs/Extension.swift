@@ -64,3 +64,55 @@ extension Double {
         }
     }
 }
+
+extension UIViewController {
+
+    func presentAlertController(title: String, message: String, completion: @escaping (_ text: [String]?) -> Void) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                
+        alertController.addTextField { (textField : UITextField) -> Void in
+            textField.placeholder = "enter_name".localized()
+            textField.backgroundColor = .white
+        }
+        
+        alertController.addTextField { (textField : UITextField) -> Void in
+            textField.placeholder = "enter_email".localized()
+            textField.backgroundColor = .white
+        }
+        
+        let loginAction = UIAlertAction(title: "Login", style: .default, handler: { alert -> Void in
+            
+            var nameAndEmail = [String]()
+            
+            guard let name = alertController.textFields?[0].text else { return }
+            guard let email = alertController.textFields?[1].text else { return }
+            nameAndEmail.append(name)
+            nameAndEmail.append(email)
+            
+            completion(nameAndEmail)
+        })
+        let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default, handler: {
+            (action : UIAlertAction!) -> Void in })
+
+        alertController.addAction(loginAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func presentAlertMessage(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Ok".localized(), style: .default, handler: {
+            (action : UIAlertAction!) -> Void in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

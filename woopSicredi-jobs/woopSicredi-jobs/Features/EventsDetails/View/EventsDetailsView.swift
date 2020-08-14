@@ -9,7 +9,13 @@
 import UIKit
 import Stevia
 
+protocol EventsDetailsViewDelegate: NSObjectProtocol {
+    func loginAction()
+}
+
 class EventsDetailsView: UIView {
+    
+    weak var delegate: EventsDetailsViewDelegate?
     
     private lazy var whiteView: UIView = {
         let whiteView = UIView(frame: .zero)
@@ -77,6 +83,14 @@ class EventsDetailsView: UIView {
         return locationLabel
     }()
     
+    private lazy var loginButton: UIButton = {
+        let loginButton = UIButton(frame: .zero)
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.backgroundColor = .blue
+        loginButton.setTitleColor(.white, for: .normal)
+        return loginButton
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -89,12 +103,13 @@ class EventsDetailsView: UIView {
     private func commonInit() {
         subviews()
         layout()
+        addActions()
     }
     
     private func subviews() {
         
         whiteView.sv([titleLabel, eventImage, descriptionTextView, dateLabel, priceLabel, locationLabel])
-        sv([whiteView])
+        sv([whiteView, loginButton])
     }
     
     private func layout() {
@@ -112,6 +127,17 @@ class EventsDetailsView: UIView {
         priceLabel.left(10).right(10).Top == dateLabel.Bottom + 10
         
         locationLabel.left(10).right(10).Top == priceLabel.Bottom + 10
+        
+        loginButton.left(50).right(50).height(40).bottom(20)
+    }
+    
+    private func addActions() {
+        
+        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+    }
+    
+    @objc private func loginAction() {
+        delegate?.loginAction()
     }
     
     func setupComponents(item: EventsListModel) {
