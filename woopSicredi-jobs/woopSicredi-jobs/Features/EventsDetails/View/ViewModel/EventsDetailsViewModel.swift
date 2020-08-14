@@ -11,7 +11,7 @@ import Alamofire
 
 final class EventsDetailsViewModel: NSObject {
     
-    func requestLogin(data: [String : Any], completion: @escaping (_ response: ResponseType?) -> Void) {
+    func requestCheckIn(data: [String : Any], completion: @escaping (_ response: ResponseType?) -> Void) {
         
         guard let url = URL(string: "http://5b840ba5db24a100142dcd8c.mockapi.io/api/checkin") else { return }
         var request = URLRequest(url: url)
@@ -19,12 +19,11 @@ final class EventsDetailsViewModel: NSObject {
         let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
         
         if let json = json {
-            print(json)
+            request.httpBody = json.data(using: String.Encoding.utf8.rawValue)
         }
         
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.httpBody = json!.data(using: String.Encoding.utf8.rawValue)
         
         AF.request(request).responseJSON { (response) in
             

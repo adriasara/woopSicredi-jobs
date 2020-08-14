@@ -15,7 +15,7 @@
 "enter_email" = "Enter your e-mail";
 "cancel" = "Cancel";
 "welcome" = "Welcome";
-"want_to_login" = "Are you interested in this event? Let's login!";
+"want_to_checkin" = "Enter the information below for check-in.";
 "success" = "Success";
 "logged" = "You're logged!";
 "fail" = "Failed";

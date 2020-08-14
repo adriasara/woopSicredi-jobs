@@ -42,7 +42,7 @@ class EventsListVC: UIViewController {
                     self.eventsListView.fillContainer()
                 }
             } else {
-                print("error")
+                self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
             }
         })
     }

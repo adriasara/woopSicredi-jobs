@@ -32,23 +32,15 @@ class EventsDetailsVC: UIViewController {
         super.viewWillAppear(animated)
         
         title = "event_detail".localized()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
-    }
-    
-    @objc private func share() {
-     
-        let activityViewController = UIActivityViewController(activityItems: [eventsDetailsView] , applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        shareImage()
     }
 }
 
 extension EventsDetailsVC: EventsDetailsViewDelegate {
     
-    func loginAction() {
-        self.dismiss(animated: true, completion: nil)
+    func checkInAction() {
 
-        self.presentAlertController(title: "welcome".localized(), message: "want_to_login".localized()) { (textFields) in
+        self.presentAlertController(title: "welcome".localized(), message: "want_to_checkin".localized()) { (textFields) in
             
             DispatchQueue.main.async {
                 
@@ -56,15 +48,13 @@ extension EventsDetailsVC: EventsDetailsViewDelegate {
                 guard let name = textFields?[0] else { return }
                 guard let email = textFields?[1] else { return }
                 
-                self.eventDetailViewModel?.requestLogin(data: ["eventId" : eventId, "name" : name, "email" : email], completion: { (response) in
+                self.eventDetailViewModel?.requestCheckIn(data: ["eventId" : eventId, "name" : name, "email" : email], completion: { (response) in
                     
-//                    self.dismiss(animated: true) {
-                        if response == .success {
-                            self.presentAlertMessage(title: "success".localized(), message: "logged".localized())
-                        } else {
-                            self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
-                        }
-//                    }
+                    if response == .success {
+                        self.presentAlertMessage(title: "success".localized(), message: "logged".localized())
+                    } else {
+                        self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
+                    }
                 })
             }
         }

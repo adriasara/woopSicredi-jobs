@@ -10,7 +10,7 @@ import UIKit
 import Stevia
 
 protocol EventsDetailsViewDelegate: NSObjectProtocol {
-    func loginAction()
+    func checkInAction()
 }
 
 class EventsDetailsView: UIView {
@@ -83,12 +83,12 @@ class EventsDetailsView: UIView {
         return locationLabel
     }()
     
-    private lazy var loginButton: UIButton = {
-        let loginButton = UIButton(frame: .zero)
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.backgroundColor = .blue
-        loginButton.setTitleColor(.white, for: .normal)
-        return loginButton
+    private lazy var checkInButton: UIButton = {
+        let checkInButton = UIButton(frame: .zero)
+        checkInButton.setTitle("Check-in", for: .normal)
+        checkInButton.backgroundColor = .blue
+        checkInButton.setTitleColor(.white, for: .normal)
+        return checkInButton
     }()
     
     override init(frame: CGRect) {
@@ -109,7 +109,7 @@ class EventsDetailsView: UIView {
     private func subviews() {
         
         whiteView.sv([titleLabel, eventImage, descriptionTextView, dateLabel, priceLabel, locationLabel])
-        sv([whiteView, loginButton])
+        sv([whiteView, checkInButton])
     }
     
     private func layout() {
@@ -128,16 +128,16 @@ class EventsDetailsView: UIView {
         
         locationLabel.left(10).right(10).Top == priceLabel.Bottom + 10
         
-        loginButton.left(50).right(50).height(40).bottom(20)
+        checkInButton.left(50).right(50).height(40).bottom(20)
     }
     
     private func addActions() {
         
-        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+        checkInButton.addTarget(self, action: #selector(checkInAction), for: .touchUpInside)
     }
     
-    @objc private func loginAction() {
-        delegate?.loginAction()
+    @objc private func checkInAction() {
+        delegate?.checkInAction()
     }
     
     func setupComponents(item: EventsListModel) {

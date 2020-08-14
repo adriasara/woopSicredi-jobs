@@ -81,7 +81,7 @@ extension UIViewController {
             textField.backgroundColor = .white
         }
         
-        let loginAction = UIAlertAction(title: "Login", style: .default, handler: { alert -> Void in
+        let checkInAction = UIAlertAction(title: "Check-in", style: .default, handler: { alert -> Void in
             
             var nameAndEmail = [String]()
             
@@ -95,7 +95,7 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default, handler: {
             (action : UIAlertAction!) -> Void in })
 
-        alertController.addAction(loginAction)
+        alertController.addAction(checkInAction)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
@@ -114,5 +114,26 @@ extension UIViewController {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func shareImage() {
+                
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
+    }
+    
+    @objc private func share() {
+     
+        let bounds = UIScreen.main.bounds
+        
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
