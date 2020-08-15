@@ -16,5 +16,5 @@ The project was organized by the MVVM (Model, View, View-Model) design pattern.
 ### Libs 
 
 + SteviaLayout: for constraint layout;
-+ Alamofire: for rest API requests.
-
++ Alamofire: for rest API requests;
++ AlamofireImage: for image conversion.
