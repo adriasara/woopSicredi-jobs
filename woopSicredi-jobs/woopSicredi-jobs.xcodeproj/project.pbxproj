@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2150AE4C24E82DE00059B7C1 /* woopSicredi_jobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150AE4B24E82DE00059B7C1 /* woopSicredi_jobsTests.swift */; };
 		2150AE5424E8339F0059B7C1 /* RequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150AE5324E8339F0059B7C1 /* RequestTest.swift */; };
+		2150AE6024E850BA0059B7C1 /* woopSicredi_jobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150AE5F24E850BA0059B7C1 /* woopSicredi_jobsUITests.swift */; };
+		2150AE6924E867630059B7C1 /* CheckinTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150AE6824E867630059B7C1 /* CheckinTest.swift */; };
 		21C618FE24E5AAC200E11C8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C618FD24E5AAC200E11C8C /* AppDelegate.swift */; };
 		21C6190024E5AAC200E11C8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C618FF24E5AAC200E11C8C /* SceneDelegate.swift */; };
 		21C6190224E5AAC200E11C8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6190124E5AAC200E11C8C /* ViewController.swift */; };
@@ -37,6 +39,13 @@
 			remoteGlobalIDString = 21C618F924E5AAC200E11C8C;
 			remoteInfo = "woopSicredi-jobs";
 		};
+		2150AE6224E850BA0059B7C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21C618F224E5AAC200E11C8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21C618F924E5AAC200E11C8C;
+			remoteInfo = "woopSicredi-jobs";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,10 @@
 		2150AE4B24E82DE00059B7C1 /* woopSicredi_jobsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = woopSicredi_jobsTests.swift; sourceTree = "<group>"; };
 		2150AE4D24E82DE00059B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2150AE5324E8339F0059B7C1 /* RequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTest.swift; sourceTree = "<group>"; };
+		2150AE5D24E850BA0059B7C1 /* woopSicredi-jobsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "woopSicredi-jobsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2150AE5F24E850BA0059B7C1 /* woopSicredi_jobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = woopSicredi_jobsUITests.swift; sourceTree = "<group>"; };
+		2150AE6124E850BA0059B7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2150AE6824E867630059B7C1 /* CheckinTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinTest.swift; sourceTree = "<group>"; };
 		21C618FA24E5AAC200E11C8C /* woopSicredi-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "woopSicredi-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C618FD24E5AAC200E11C8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C618FF24E5AAC200E11C8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +91,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2150AE5A24E850BA0059B7C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C618F724E5AAC200E11C8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,10 +121,36 @@
 			isa = PBXGroup;
 			children = (
 				2150AE4B24E82DE00059B7C1 /* woopSicredi_jobsTests.swift */,
-				2150AE5324E8339F0059B7C1 /* RequestTest.swift */,
+				2150AE5524E84F990059B7C1 /* UnitTest */,
 				2150AE4D24E82DE00059B7C1 /* Info.plist */,
 			);
 			path = "woopSicredi-jobsTests";
+			sourceTree = "<group>";
+		};
+		2150AE5524E84F990059B7C1 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				2150AE5324E8339F0059B7C1 /* RequestTest.swift */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
+		2150AE5E24E850BA0059B7C1 /* woopSicredi-jobsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2150AE5F24E850BA0059B7C1 /* woopSicredi_jobsUITests.swift */,
+				2150AE6724E8674F0059B7C1 /* UITest */,
+				2150AE6124E850BA0059B7C1 /* Info.plist */,
+			);
+			path = "woopSicredi-jobsUITests";
+			sourceTree = "<group>";
+		};
+		2150AE6724E8674F0059B7C1 /* UITest */ = {
+			isa = PBXGroup;
+			children = (
+				2150AE6824E867630059B7C1 /* CheckinTest.swift */,
+			);
+			path = UITest;
 			sourceTree = "<group>";
 		};
 		21C618F124E5AAC200E11C8C = {
@@ -112,6 +158,7 @@
 			children = (
 				21C618FC24E5AAC200E11C8C /* woopSicredi-jobs */,
 				2150AE4A24E82DE00059B7C1 /* woopSicredi-jobsTests */,
+				2150AE5E24E850BA0059B7C1 /* woopSicredi-jobsUITests */,
 				21C618FB24E5AAC200E11C8C /* Products */,
 				442BC6344049AA9B055E2DEA /* Pods */,
 				16967205B78F3756BD81BDE4 /* Frameworks */,
@@ -123,6 +170,7 @@
 			children = (
 				21C618FA24E5AAC200E11C8C /* woopSicredi-jobs.app */,
 				2150AE4924E82DE00059B7C1 /* woopSicredi-jobsTests.xctest */,
+				2150AE5D24E850BA0059B7C1 /* woopSicredi-jobsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,6 +374,24 @@
 			productReference = 2150AE4924E82DE00059B7C1 /* woopSicredi-jobsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2150AE5C24E850BA0059B7C1 /* woopSicredi-jobsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2150AE6424E850BA0059B7C1 /* Build configuration list for PBXNativeTarget "woopSicredi-jobsUITests" */;
+			buildPhases = (
+				2150AE5924E850BA0059B7C1 /* Sources */,
+				2150AE5A24E850BA0059B7C1 /* Frameworks */,
+				2150AE5B24E850BA0059B7C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2150AE6324E850BA0059B7C1 /* PBXTargetDependency */,
+			);
+			name = "woopSicredi-jobsUITests";
+			productName = "woopSicredi-jobsUITests";
+			productReference = 2150AE5D24E850BA0059B7C1 /* woopSicredi-jobsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		21C618F924E5AAC200E11C8C /* woopSicredi-jobs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21C6190E24E5AAC400E11C8C /* Build configuration list for PBXNativeTarget "woopSicredi-jobs" */;
@@ -359,6 +425,10 @@
 						CreatedOnToolsVersion = 11.6;
 						TestTargetID = 21C618F924E5AAC200E11C8C;
 					};
+					2150AE5C24E850BA0059B7C1 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 21C618F924E5AAC200E11C8C;
+					};
 					21C618F924E5AAC200E11C8C = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -380,12 +450,20 @@
 			targets = (
 				21C618F924E5AAC200E11C8C /* woopSicredi-jobs */,
 				2150AE4824E82DE00059B7C1 /* woopSicredi-jobsTests */,
+				2150AE5C24E850BA0059B7C1 /* woopSicredi-jobsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2150AE4724E82DE00059B7C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2150AE5B24E850BA0059B7C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -456,6 +534,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2150AE5924E850BA0059B7C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2150AE6024E850BA0059B7C1 /* woopSicredi_jobsUITests.swift in Sources */,
+				2150AE6924E867630059B7C1 /* CheckinTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21C618F624E5AAC200E11C8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,6 +571,11 @@
 			isa = PBXTargetDependency;
 			target = 21C618F924E5AAC200E11C8C /* woopSicredi-jobs */;
 			targetProxy = 2150AE4E24E82DE00059B7C1 /* PBXContainerItemProxy */;
+		};
+		2150AE6324E850BA0059B7C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21C618F924E5AAC200E11C8C /* woopSicredi-jobs */;
+			targetProxy = 2150AE6224E850BA0059B7C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -544,6 +636,44 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/woopSicredi-jobs.app/woopSicredi-jobs";
+			};
+			name = Release;
+		};
+		2150AE6524E850BA0059B7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "woopSicredi-jobsUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.woopSicredi-jobsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "woopSicredi-jobs";
+			};
+			name = Debug;
+		};
+		2150AE6624E850BA0059B7C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "woopSicredi-jobsUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.woopSicredi-jobsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "woopSicredi-jobs";
 			};
 			name = Release;
 		};
@@ -709,6 +839,15 @@
 			buildConfigurations = (
 				2150AE5024E82DE00059B7C1 /* Debug */,
 				2150AE5124E82DE00059B7C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2150AE6424E850BA0059B7C1 /* Build configuration list for PBXNativeTarget "woopSicredi-jobsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2150AE6524E850BA0059B7C1 /* Debug */,
+				2150AE6624E850BA0059B7C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
