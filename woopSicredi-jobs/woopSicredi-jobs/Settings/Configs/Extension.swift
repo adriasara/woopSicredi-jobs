@@ -98,7 +98,7 @@ extension UIViewController {
             completion(nameAndEmail)
         })
         let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default, handler: {
-            (action : UIAlertAction!) -> Void in })
+            (action : UIAlertAction) -> Void in })
 
         alertController.addAction(checkInAction)
         alertController.addAction(cancelAction)
@@ -111,7 +111,7 @@ extension UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Ok".localized(), style: .default, handler: {
-            (action : UIAlertAction!) -> Void in
+            (action : UIAlertAction) -> Void in
             
             self.navigationController?.popViewController(animated: true)
         })
@@ -131,14 +131,33 @@ extension UIViewController {
         let bounds = UIScreen.main.bounds
         
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
-        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        view.drawHierarchy(in: bounds, afterScreenUpdates: false)
 
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
+        guard let img = image else { return }
+        let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         
-        self.present(activityViewController, animated: true, completion: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+extension UIView {
+    
+    func asImage() -> UIImage {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(bounds: bounds)
+            return renderer.image { rendererContext in
+                layer.render(in: rendererContext.cgContext)
+            }
+        } else {
+            UIGraphicsBeginImageContext(self.frame.size)
+            self.layer.render(in:UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return UIImage(cgImage: image!.cgImage!)
+        }
     }
 }
