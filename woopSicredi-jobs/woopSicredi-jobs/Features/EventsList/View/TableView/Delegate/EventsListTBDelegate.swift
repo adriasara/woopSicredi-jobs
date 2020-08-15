@@ -55,6 +55,6 @@ extension EventsListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 110
+        return 150
     }
 }

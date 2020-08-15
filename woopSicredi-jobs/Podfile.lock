@@ -1,20 +1,25 @@
 PODS:
   - Alamofire (5.2.2)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
   - SteviaLayout (4.7.3)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - SteviaLayout
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlamofireImage
     - SteviaLayout
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
 
-PODFILE CHECKSUM: 1144101a01712333938176ce13f0cb8e148de147
+PODFILE CHECKSUM: cab83620f369a45e449fc811c6512038738a6bf1
 
 COCOAPODS: 1.9.3

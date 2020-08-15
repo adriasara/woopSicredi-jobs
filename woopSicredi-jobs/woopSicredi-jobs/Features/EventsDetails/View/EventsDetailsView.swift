@@ -8,6 +8,8 @@
 
 import UIKit
 import Stevia
+import Alamofire
+import AlamofireImage
 
 protocol EventsDetailsViewDelegate: NSObjectProtocol {
     func checkInAction()
@@ -114,15 +116,15 @@ class EventsDetailsView: UIView {
     
     private func layout() {
         
-        whiteView.centerVertically().centerHorizontally().height(80%).width(90%)
+        whiteView.centerVertically().centerHorizontally().height(80%).left(10).right(10)
     
-        titleLabel.top(15).left(10).right(10)
+        titleLabel.top(15).left(0).right(0)
         
-        eventImage.left(10).right(10).height(30%).Top == titleLabel.Bottom + 15
+        eventImage.left(10).right(10).height(30%).Top == titleLabel.Bottom + 10
         
-        descriptionTextView.left(10).right(10).height(40%).Top == eventImage.Bottom + 10
+        descriptionTextView.left(10).right(10).height(30%).Top == eventImage.Bottom + 10
         
-        dateLabel.left(10).right(10).Top == descriptionTextView.Bottom + 15
+        dateLabel.left(10).right(10).Top == descriptionTextView.Bottom + 10
         
         priceLabel.left(10).right(10).Top == dateLabel.Bottom + 10
         
@@ -146,12 +148,11 @@ class EventsDetailsView: UIView {
         
         if let image = item.image {
             if let url = URL(string: image) {
-                do {
-                    let data: Data = try Data(contentsOf: url)
-                    eventImage.image = UIImage(data: data)
-                } catch {
-                    eventImage.image = #imageLiteral(resourceName: "no-photo")
-                }
+
+                eventImage.af.setImage(withURL: url,
+                placeholderImage: #imageLiteral(resourceName: "no-photo"),
+                filter: CircleFilter(),
+                imageTransition: .flipFromBottom(0.5))
             }
         }
         
