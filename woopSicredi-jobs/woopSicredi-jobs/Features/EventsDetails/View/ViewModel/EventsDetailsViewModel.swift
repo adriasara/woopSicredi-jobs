@@ -22,6 +22,7 @@ final class EventsDetailsViewModel: NSObject {
             request.httpBody = json.data(using: String.Encoding.utf8.rawValue)
         }
         
+        request.timeoutInterval = 10
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         

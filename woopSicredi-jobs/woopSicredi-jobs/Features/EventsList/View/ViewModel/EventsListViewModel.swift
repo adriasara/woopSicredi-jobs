@@ -19,9 +19,12 @@ final class EventsListViewModel: NSObject {
     
     func requestEventsList(completion: @escaping (_ response: ResponseType?, _ result: [EventsListModel]?) -> Void) {
         
-        let request = AF.request("http://5b840ba5db24a100142dcd8c.mockapi.io/api/events")
+        guard let url = URL(string: "http://5b840ba5db24a100142dcd8c.mockapi.io/api/events") else { return }
+       
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 10
         
-        request.responseJSON { (response) in
+        AF.request(request).responseJSON { (response) in
             
             if let data = response.data {
 

@@ -10,5 +10,6 @@ target 'woopSicredi-jobs' do
 pod 'Alamofire'
 pod 'SteviaLayout'
 pod 'AlamofireImage'
+pod 'MaterialComponents'
 
 end

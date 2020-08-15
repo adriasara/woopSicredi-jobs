@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 protocol EventListViewDelegate: NSObjectProtocol {
     func selectEvent(event: EventsListModel)
@@ -84,12 +85,19 @@ class EventsListView: UIView {
     
     @objc private func refreshTbView() {
         
-        requestEventList { (_) in
+        requestEventList { (response) in
             self.tbVEventList.reloadData()
             
             if self.refreshControl.isRefreshing {
 
                 self.refreshControl.endRefreshing()
+            }
+            
+            if response != .success {
+                
+                let message = MDCSnackbarMessage()
+                message.text = "error".localized()
+                MDCSnackbarManager.show(message)
             }
         }
     }
