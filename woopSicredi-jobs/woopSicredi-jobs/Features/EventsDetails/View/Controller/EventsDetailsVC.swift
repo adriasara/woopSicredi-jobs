@@ -34,6 +34,21 @@ class EventsDetailsVC: UIViewController {
         title = "event_detail".localized()
         shareImage()
     }
+    
+    func shareImage() {
+                
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
+    }
+    
+    @objc private func share() {
+        
+        let image = eventsDetailsView.getWhiteView().asImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 extension EventsDetailsVC: EventsDetailsViewDelegate {

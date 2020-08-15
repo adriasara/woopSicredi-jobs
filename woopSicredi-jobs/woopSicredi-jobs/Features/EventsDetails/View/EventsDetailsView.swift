@@ -182,4 +182,8 @@ class EventsDetailsView: UIView {
             }
         }
     }
+    
+    func getWhiteView() -> UIView {
+        return whiteView
+    }
 }

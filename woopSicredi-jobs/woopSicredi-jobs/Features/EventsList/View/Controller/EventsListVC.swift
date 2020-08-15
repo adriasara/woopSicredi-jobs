@@ -17,7 +17,7 @@ class EventsListVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-                
+        
         eventsListView.requestEventList { (response) in
             
             if response == .success {
