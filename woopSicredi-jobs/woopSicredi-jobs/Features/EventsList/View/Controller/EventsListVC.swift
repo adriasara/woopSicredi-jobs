@@ -12,39 +12,30 @@ import Stevia
 class EventsListVC: UIViewController {
     
     let eventsListView: EventsListView = EventsListView(frame: .zero)
-    var eventsListViewModel: EventsListViewModel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
                 
-        requestEventList()
+        eventsListView.requestEventList { (response) in
+            
+            if response == .success {
+
+                self.view.sv(self.eventsListView)
+                self.eventsListView.delegate = self
+                self.eventsListView.fillContainer()
+            } else {
+                
+                self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = "events".localized()
-    }
-    
-    func requestEventList() {
-        
-        eventsListViewModel = EventsListViewModel(eventsListModel: .init())
-        
-        eventsListViewModel?.requestEventsList(completion: { (response, result)  in
-            
-            if response == .success {                
-                if let eventList = result {
-                    self.eventsListView.setEventsList(result: eventList)
-                    self.view.sv(self.eventsListView)
-                    self.eventsListView.delegate = self
-                    self.eventsListView.fillContainer()
-                }
-            } else {
-                self.presentAlertMessage(title: "fail".localized(), message: "error".localized())
-            }
-        })
     }
 }
 

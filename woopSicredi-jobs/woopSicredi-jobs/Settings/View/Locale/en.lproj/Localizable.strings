@@ -21,3 +21,4 @@
 "fail" = "Failed";
 "error" = "Somenthing's wrong. Try again.";
 "type_valid_email" = "Type a valid email.";
+"loading" = "Loading...";
