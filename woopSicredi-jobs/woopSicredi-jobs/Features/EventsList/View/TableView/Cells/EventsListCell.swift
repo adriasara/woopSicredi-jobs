@@ -18,6 +18,7 @@ class EventsListCell: UITableViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.textColor = .black
         titleLabel.backgroundColor = .white
+        titleLabel.accessibilityLabel = "titleID"
         return titleLabel
     }()
     

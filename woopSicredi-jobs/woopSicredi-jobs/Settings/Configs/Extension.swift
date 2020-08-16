@@ -84,6 +84,7 @@ extension UIViewController {
         alertController.addTextField { (textField : UITextField) -> Void in
             textField.placeholder = "enter_email".localized()
             textField.backgroundColor = .white
+            textField.accessibilityLabel = "enterEmailTxtField"
         }
         
         let checkInAction = UIAlertAction(title: "Check-in", style: .default, handler: { alert -> Void in
@@ -100,9 +101,11 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: "cancel".localized(), style: .default, handler: {
             (action : UIAlertAction) -> Void in })
 
+        checkInAction.accessibilityLabel = "checkInButtonAlert"
+        
         alertController.addAction(checkInAction)
         alertController.addAction(cancelAction)
-        
+                
         self.present(alertController, animated: true, completion: nil)
     }
     
@@ -116,6 +119,8 @@ extension UIViewController {
             self.navigationController?.popViewController(animated: true)
         })
 
+        cancelAction.accessibilityLabel = "okButtonAlert"
+        
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)

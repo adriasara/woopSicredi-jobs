@@ -44,6 +44,7 @@ class EventsListView: UIView {
         tbVEventList.layer.borderColor = UIColor.black.cgColor
         tbVEventList.backgroundColor = .white
         tbVEventList.refreshControl = refreshControl
+        tbVEventList.accessibilityLabel = "eventListTbView"
         return tbVEventList
     }()
     

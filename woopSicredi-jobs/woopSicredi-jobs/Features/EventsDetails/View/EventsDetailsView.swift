@@ -90,6 +90,7 @@ class EventsDetailsView: UIView {
         checkInButton.setTitle("Check-in", for: .normal)
         checkInButton.backgroundColor = .blue
         checkInButton.setTitleColor(.white, for: .normal)
+        checkInButton.accessibilityLabel = "checkInButton"
         return checkInButton
     }()
     

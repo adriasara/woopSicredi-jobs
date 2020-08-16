@@ -30,18 +30,20 @@ class CheckingTest: XCTestCase {
         
         let app = XCUIApplication()
         app.launch()
-        app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"R$ 29,99")/*[[".cells.containing(.staticText, identifier:\"Feira de adoção de animais na Redenção\")",".cells.containing(.staticText, identifier:\"R$ 29,99\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["20-08-2018 01:00 PM"].tap()
+        
+        let tableView = app.tables["eventListTbView"]
+        tableView.cells["my_cell"].staticTexts["titleID"].tap()
         
         let app2 = XCUIApplication()
-        app2/*@START_MENU_TOKEN@*/.staticTexts["Check-in"]/*[[".buttons[\"Check-in\"].staticTexts[\"Check-in\"]",".staticTexts[\"Check-in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app2.buttons["checkInButton"].tap()
         
-        let typeEmail = app2.alerts["Bem-vindo"].scrollViews.otherElements.collectionViews.textFields["Preencha seu e-mail"]
+        let typeEmail = app.textFields["enterEmailTxtField"]
         XCTAssertTrue(typeEmail.exists)
         
         typeEmail.tap()
         typeEmail.typeText(email)
         
-        app.alerts["Bem-vindo"].scrollViews.otherElements.buttons["Check-in"].tap()
-        app.alerts["Sucesso"].scrollViews.otherElements.buttons["Ok"].tap()
+        app.buttons["checkInButtonAlert"].tap()
+        app.buttons["okButtonAlert"].tap()
     }
 }

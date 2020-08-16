@@ -33,6 +33,11 @@ extension EventsListView: UITableViewDataSource {
         
         cell.backgroundColor = .white
         cell.selectionStyle = .none
+        
+        if indexPath.row == 0 {
+
+            cell.accessibilityLabel = "my_cell"
+        }
 
         if let eventList = getEventsList() {
             let items = eventList[indexPath.row]
