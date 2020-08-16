@@ -22,3 +22,7 @@
 "error" = "Algo deu errado. Tente novamente.";
 "type_valid_email" = "Insira um e-mail válido.";
 "loading" = "Carregando...";
+"title" = "Título";
+"date" = "Data";
+"price" = "Preço";
+"location" = "Localização";

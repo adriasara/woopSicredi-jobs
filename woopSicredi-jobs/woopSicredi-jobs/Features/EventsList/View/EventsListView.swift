@@ -102,7 +102,7 @@ class EventsListView: UIView {
         }
     }
     
-    func getEventsList() -> [EventsListModel] {
+    func getEventsList() -> [EventsListModel]? {
         return eventListResult
     }
     

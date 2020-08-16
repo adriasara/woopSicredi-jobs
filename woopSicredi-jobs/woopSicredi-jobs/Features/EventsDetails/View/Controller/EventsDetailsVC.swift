@@ -42,12 +42,9 @@ class EventsDetailsVC: UIViewController {
     
     @objc private func share() {
         
-        let image = eventsDetailsView.getWhiteView().asImage()
+        let image = eventsDetailsView.whiteView.asImage()
         
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        
-        present(activityViewController, animated: true, completion: nil)
+        openShareActivity(image: image)
     }
 }
 

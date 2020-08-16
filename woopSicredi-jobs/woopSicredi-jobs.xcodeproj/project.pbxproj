@@ -13,7 +13,6 @@
 		2150AE6924E867630059B7C1 /* CheckinTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150AE6824E867630059B7C1 /* CheckinTest.swift */; };
 		21C618FE24E5AAC200E11C8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C618FD24E5AAC200E11C8C /* AppDelegate.swift */; };
 		21C6190024E5AAC200E11C8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C618FF24E5AAC200E11C8C /* SceneDelegate.swift */; };
-		21C6190224E5AAC200E11C8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6190124E5AAC200E11C8C /* ViewController.swift */; };
 		21C6190724E5AAC400E11C8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C6190624E5AAC400E11C8C /* Assets.xcassets */; };
 		21C6190A24E5AAC400E11C8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C6190824E5AAC400E11C8C /* LaunchScreen.storyboard */; };
 		21C6191C24E5AD4A00E11C8C /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6191B24E5AD4A00E11C8C /* EventsListView.swift */; };
@@ -60,7 +59,6 @@
 		21C618FA24E5AAC200E11C8C /* woopSicredi-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "woopSicredi-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C618FD24E5AAC200E11C8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C618FF24E5AAC200E11C8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		21C6190124E5AAC200E11C8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21C6190624E5AAC400E11C8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21C6190924E5AAC400E11C8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C6190B24E5AAC400E11C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			children = (
 				21C6191124E5AB6500E11C8C /* Features */,
 				21C6191424E5ABC400E11C8C /* Settings */,
-				21C6190124E5AAC200E11C8C /* ViewController.swift */,
 				21C6190B24E5AAC400E11C8C /* Info.plist */,
 			);
 			path = "woopSicredi-jobs";
@@ -552,7 +549,6 @@
 				21E2522324E6012B0003CF8A /* EventsDetailsVC.swift in Sources */,
 				21C6191C24E5AD4A00E11C8C /* EventsListView.swift in Sources */,
 				21E2520A24E5C7580003CF8A /* Enum.swift in Sources */,
-				21C6190224E5AAC200E11C8C /* ViewController.swift in Sources */,
 				21C618FE24E5AAC200E11C8C /* AppDelegate.swift in Sources */,
 				21E2520624E5B4200003CF8A /* EventsListViewModel.swift in Sources */,
 				21C6190024E5AAC200E11C8C /* SceneDelegate.swift in Sources */,

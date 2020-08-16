@@ -19,7 +19,7 @@ class EventsDetailsView: UIView {
     
     weak var delegate: EventsDetailsViewDelegate?
     
-    private lazy var whiteView: UIView = {
+    private (set) lazy var whiteView: UIView = {
         let whiteView = UIView(frame: .zero)
         whiteView.backgroundColor = .white
         return whiteView
@@ -142,11 +142,15 @@ class EventsDetailsView: UIView {
         delegate?.checkInAction()
     }
     
-    func setupComponents(item: EventsListModel) {
+    func setupComponents(item: EventsListModel?) {
         
-        titleLabel.text = item.title
+        if let title = item?.title {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = "title".localized() + ": -"
+        }
         
-        if let image = item.image {
+        if let image = item?.image {
             if let url = URL(string: image) {
 
                 eventImage.af.setImage(withURL: url,
@@ -154,22 +158,30 @@ class EventsDetailsView: UIView {
                 filter: CircleFilter(),
                 imageTransition: .flipFromBottom(0.5))
             }
+        } else {
+            eventImage.image = #imageLiteral(resourceName: "no-photo")
         }
         
-        descriptionTextView.text = item.description
+        if let description = item?.description {
+            descriptionTextView.text = description
+        } else {
+            descriptionTextView.text = "-"
+        }
         
-        if let date = item.date {
-
+        if let date = item?.date {
             dateLabel.text = "date".localized() + ": \(date.convertMiliseconsToDate())"
+        } else {
+            dateLabel.text = "date".localized() + ": -"
         }
         
-        if let price = item.price {
-
+        if let price = item?.price {
             priceLabel.text = "value".localized() + ": \(price.convertMoney())"
+        } else {
+            priceLabel.text = "value".localized() + ": -"
         }
         
-        if let latitude = item.latitude {
-            if let longitude = item.longitude {
+        if let latitude = item?.latitude {
+            if let longitude = item?.longitude {
                 latitude.convertLocation(longitude: longitude) { (result, error) in
                     if error == nil {
                         if let location = result {
@@ -179,11 +191,11 @@ class EventsDetailsView: UIView {
                         self.locationLabel.text = "location".localized() + ": -"
                     }
                 }
+            } else {
+                self.locationLabel.text = "location".localized() + ": -"
             }
+        } else {
+            self.locationLabel.text = "location".localized() + ": -"
         }
-    }
-    
-    func getWhiteView() -> UIView {
-        return whiteView
     }
 }

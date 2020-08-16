@@ -43,7 +43,5 @@ class CheckingTest: XCTestCase {
         
         app.alerts["Bem-vindo"].scrollViews.otherElements.buttons["Check-in"].tap()
         app.alerts["Sucesso"].scrollViews.otherElements.buttons["Ok"].tap()
-        
     }
-
 }
